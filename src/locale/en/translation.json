@@ -1,0 +1,75 @@
+{
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your account",
+      "emailOrUsername": "Email or Username",
+      "emailOrUsernamePlaceholder": "Enter your email or username",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign in",
+      "signingIn": "Signing in...",
+      "orContinueWith": "Or continue with",
+      "google": "Google",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up"
+    },
+    "register": {
+      "title": "Welcome Back",
+      "subtitle": "Join Us",
+      "username": "Username",
+      "usernamePlaceholder": "Enter your username",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "displayName": "Display Name",
+      "displayNamePlaceholder": "Enter your display name",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "createAccount": "Create Account",
+      "creatingAccount": "Creating account...",
+      "orContinueWith": "Or continue with",
+      "google": "Google",
+      "haveAccount": "have an account?",
+      "login": "Login"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "subtitle": "Enter your email to reset your password",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "sendResetLink": "Send Reset Link",
+      "sendingResetLink": "Sending reset link...",
+      "backToLogin": "Back to Login",
+      "resetLinkSent": "Reset link sent to your email"
+    },
+    "changePassword": {
+      "title": "Change Password",
+      "subtitle": "Enter your new password",
+      "newPassword": "New Password",
+      "newPasswordPlaceholder": "Enter your new password",
+      "confirmNewPassword": "Confirm New Password",
+      "confirmNewPasswordPlaceholder": "Confirm your new password",
+      "updatePassword": "Update Password",
+      "updatingPassword": "Updating password...",
+      "backToLogin": "Back to Login",
+      "passwordUpdated": "Password updated successfully"
+    },
+    "validation": {
+      "fieldRequired": "Field is required",
+      "usernameInvalid": "Username must have at least 3 characters and no spaces",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "displayNameInvalid": "Display name must have at least 3 characters",
+      "passwordRequired": "Password is required",
+      "passwordTooShort": "Password must be at least 6 characters long",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "newPasswordRequired": "New password is required",
+      "confirmNewPasswordRequired": "Please confirm your new password",
+      "newPasswordsDoNotMatch": "New passwords do not match"
+    }
+  }
+}

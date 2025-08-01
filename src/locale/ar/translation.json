@@ -1,0 +1,75 @@
+{
+  "auth": {
+    "login": {
+      "title": "مرحباً بعودتك",
+      "subtitle": "سجل الدخول إلى حسابك",
+      "emailOrUsername": "البريد الإلكتروني أو اسم المستخدم",
+      "emailOrUsernamePlaceholder": "أدخل بريدك الإلكتروني أو اسم المستخدم",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "signIn": "تسجيل الدخول",
+      "signingIn": "جاري تسجيل الدخول...",
+      "orContinueWith": "أو تابع باستخدام",
+      "google": "جوجل",
+      "noAccount": "ليس لديك حساب؟",
+      "signUp": "إنشاء حساب"
+    },
+    "register": {
+      "title": "مرحباً بك",
+      "subtitle": "انضم إلينا",
+      "username": "اسم المستخدم",
+      "usernamePlaceholder": "أدخل اسم المستخدم",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "displayName": "الاسم المعروض",
+      "displayNamePlaceholder": "أدخل الاسم المعروض",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "أكد كلمة المرور",
+      "createAccount": "إنشاء حساب",
+      "creatingAccount": "جاري إنشاء الحساب...",
+      "orContinueWith": "أو تابع باستخدام",
+      "google": "جوجل",
+      "haveAccount": "لديك حساب؟",
+      "login": "تسجيل الدخول"
+    },
+    "forgotPassword": {
+      "title": "نسيت كلمة المرور",
+      "subtitle": "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور",
+      "email": "عنوان البريد الإلكتروني",
+      "emailPlaceholder": "أدخل عنوان بريدك الإلكتروني",
+      "sendResetLink": "إرسال رابط إعادة التعيين",
+      "sendingResetLink": "جاري إرسال رابط إعادة التعيين...",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "resetLinkSent": "تم إرسال رابط إعادة التعيين إلى بريدك الإلكتروني"
+    },
+    "changePassword": {
+      "title": "تغيير كلمة المرور",
+      "subtitle": "أدخل كلمة المرور الجديدة",
+      "newPassword": "كلمة المرور الجديدة",
+      "newPasswordPlaceholder": "أدخل كلمة المرور الجديدة",
+      "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+      "confirmNewPasswordPlaceholder": "أكد كلمة المرور الجديدة",
+      "updatePassword": "تحديث كلمة المرور",
+      "updatingPassword": "جاري تحديث كلمة المرور...",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "passwordUpdated": "تم تحديث كلمة المرور بنجاح"
+    },
+    "validation": {
+      "fieldRequired": "هذا الحقل مطلوب",
+      "usernameInvalid": "يجب أن يحتوي اسم المستخدم على 3 أحرف على الأقل وبدون مسافات",
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "emailInvalid": "يرجى إدخال عنوان بريد إلكتروني صحيح",
+      "displayNameInvalid": "يجب أن يحتوي الاسم المعروض على 3 أحرف على الأقل",
+      "passwordRequired": "كلمة المرور مطلوبة",
+      "passwordTooShort": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
+      "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
+      "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+      "newPasswordRequired": "كلمة المرور الجديدة مطلوبة",
+      "confirmNewPasswordRequired": "يرجى تأكيد كلمة المرور الجديدة",
+      "newPasswordsDoNotMatch": "كلمات المرور الجديدة غير متطابقة"
+    }
+  }
+}
