@@ -1,10 +1,12 @@
+import { BASE_URL } from "../../constants/base-url";
+
 export default function GoogleAuthButton() {
   const handleGoogleLogin = () => {
     const googleAuthUrl =
       `https://accounts.google.com/o/oauth2/v2/auth?` +
       `client_id=782956139930-c2n3qomffhg645rkiqj4r2drppha7g1g.apps.googleusercontent.com&` +
       `redirect_uri=${encodeURIComponent(
-        "https://yourapi.com/api/identity/google-callback"
+        `${BASE_URL}/api/identity/google-callback`
       )}&` +
       `response_type=code&` +
       `scope=openid%20profile%20email&` +
