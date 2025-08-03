@@ -11,12 +11,20 @@ const login = async (formData) => {
       },
     });
 
+    const data = await response.json();
+
+    // Check if the HTTP request was successful
     if (!response.ok) {
-      throw new Error("Login failed");
+      // If there's an error message in the response, use it
+      throw new Error(data.message || data.title || "Login failed");
     }
 
-    const data = await response.json();
-    return data;
+    // If we get here and have an accessToken, login was successful
+    if (!data.accessToken) {
+      throw new Error("No access token received");
+    }
+
+    return data.accessToken;
   } catch (error) {
     console.error("Login error:", error);
     throw error;

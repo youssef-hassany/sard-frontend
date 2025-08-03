@@ -1,3 +1,5 @@
+import AuthFailure from "../pages/auth/auth-failed";
+import AuthSuccess from "../pages/auth/auth-successful";
 import ChangePasswordPage from "../pages/auth/change-password";
 import ForgotPasswordPage from "../pages/auth/forgot-password";
 import LoginPage from "../pages/auth/login";
@@ -20,8 +22,16 @@ const routes = [
     component: <ForgotPasswordPage />,
   },
   {
-    url: "/change-password",
+    url: "/reset-password",
     component: <ChangePasswordPage />,
+  },
+  {
+    url: "/auth/success",
+    component: <AuthSuccess />,
+  },
+  {
+    url: "/auth/error",
+    component: <AuthFailure />,
   },
 
   //   pages

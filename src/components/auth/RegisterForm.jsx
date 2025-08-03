@@ -2,9 +2,16 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Eye, EyeOff, Mail, Lock, User, ArrowRight } from "lucide-react";
 import { useRegister } from "../../hooks/auth/useRegister";
+import useAuthStore from "../../store/authTokenStore";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import Button from "../ui/button";
 
 export default function RegisterForm() {
   const { t } = useTranslation();
+
+  const { setToken } = useAuthStore();
+  const navigate = useNavigate();
 
   const [formFields, setformFields] = useState({
     username: "",
@@ -32,7 +39,12 @@ export default function RegisterForm() {
     });
   };
 
-  const { mutateAsync: register, isLoading, isError, error } = useRegister();
+  const {
+    mutateAsync: register,
+    isPending: isLoading,
+    isError,
+    error,
+  } = useRegister();
 
   const validateFields = () => {
     let isValid = true;
@@ -103,7 +115,11 @@ export default function RegisterForm() {
     formData.append("Password", formFields.password);
 
     try {
-      await register(formData);
+      const token = await register(formData);
+
+      setToken(token);
+      navigate("/", { replace: true });
+      toast.success(t("auth.register.accountCreatedMessage"));
     } catch (error) {
       console.error(error);
     }
@@ -268,27 +284,17 @@ export default function RegisterForm() {
           )}
         </div>
 
-        {isError && <p className="text-red-600 my-3">{error}</p>}
+        {isError && <p className="text-red-600 my-3">{error?.message}</p>}
 
         {/* Submit Button */}
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="w-full flex items-center justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 group"
-          style={{ backgroundColor: isLoading ? "#4F46E5" : "#2563EB" }}
-        >
-          {isLoading ? (
-            <div className="flex items-center">
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-              {t("auth.register.creatingAccount")}
-            </div>
-          ) : (
-            <div className="flex items-center">
-              {t("auth.register.createAccount")}
+        <Button type="submit" isLoading={isLoading}>
+          <div className="flex items-center">
+            {t("auth.register.createAccount")}
+            {!isLoading && (
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          )}
-        </button>
+            )}
+          </div>
+        </Button>
       </div>
     </form>
   );

@@ -33,7 +33,8 @@
       "orContinueWith": "أو تابع باستخدام",
       "google": "جوجل",
       "haveAccount": "لديك حساب؟",
-      "login": "تسجيل الدخول"
+      "login": "تسجيل الدخول",
+      "accountCreatedMessage": "تم إنشاء الحساب"
     },
     "forgotPassword": {
       "title": "نسيت كلمة المرور",
@@ -56,6 +57,20 @@
       "updatingPassword": "جاري تحديث كلمة المرور...",
       "backToLogin": "العودة لتسجيل الدخول",
       "passwordUpdated": "تم تحديث كلمة المرور بنجاح"
+    },
+    "success": {
+      "title": "تم التوثيق بنجاح!",
+      "message": "تم توثيقك بنجاح. نحن الآن نعيد توجيهك إلى الصفحة الرئيسية.",
+      "redirecting": "إعادة التوجيه خلال",
+      "seconds": "ثواني",
+      "second": "ثانية"
+    },
+    "failure": {
+      "title": "فشل في التوثيق",
+      "message": "واجهنا مشكلة أثناء محاولة توثيق حسابك. يرجى المحاولة مرة أخرى.",
+      "errorDetails": "تفاصيل الخطأ:",
+      "stillTrouble": "لا تزال تواجه مشاكل؟",
+      "contactSupport": "اتصل بالدعم"
     },
     "validation": {
       "fieldRequired": "هذا الحقل مطلوب",

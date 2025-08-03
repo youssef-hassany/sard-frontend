@@ -2,9 +2,15 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Eye, EyeOff, Mail, Lock, ArrowRight } from "lucide-react";
 import { useLogin } from "../../hooks/auth/useLogin";
+import useAuthStore from "../../store/authTokenStore";
+import { useNavigate } from "react-router-dom";
+import Button from "../ui/button";
 
 export default function LoginForm() {
   const { t } = useTranslation();
+
+  const { setToken } = useAuthStore();
+  const navigate = useNavigate();
 
   const [formFields, setformFields] = useState({
     loginCardinality: "",
@@ -25,27 +31,31 @@ export default function LoginForm() {
     });
   };
 
-  const { mutateAsync: login, isLoading, isError, error } = useLogin();
+  const {
+    mutateAsync: login,
+    isPending: isLoading,
+    isError,
+    error,
+  } = useLogin();
 
   const validateFields = () => {
     let isValid = true;
+    const newErrors = {
+      loginCardinality: "",
+      password: "",
+    };
 
     if (!formFields.loginCardinality.trim()) {
       isValid = false;
-      setErrors((prev) => ({
-        ...prev,
-        loginCardinality: t("auth.validation.fieldRequired"),
-      }));
+      newErrors.loginCardinality = t("auth.validation.fieldRequired");
     }
 
     if (!formFields.password.trim()) {
       isValid = false;
-      setErrors((prev) => ({
-        ...prev,
-        password: t("auth.validation.fieldRequired"),
-      }));
+      newErrors.password = t("auth.validation.fieldRequired");
     }
 
+    setErrors(newErrors);
     return isValid;
   };
 
@@ -54,15 +64,14 @@ export default function LoginForm() {
 
     if (!validateFields()) return;
 
-    setErrors({
-      loginCardinality: "",
-      password: "",
-    });
-
     try {
-      await login(formFields);
+      const token = await login(formFields);
+
+      // If we get here, login was successful
+      setToken(token);
+      navigate("/", { replace: true });
     } catch (error) {
-      console.error(error);
+      console.error("Login error:", error);
     }
   };
 
@@ -85,7 +94,7 @@ export default function LoginForm() {
             <input
               id="loginCardinality"
               name="loginCardinality"
-              type="loginCardinality"
+              type="text"
               value={formFields.loginCardinality}
               onChange={handleChange}
               className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
@@ -147,27 +156,17 @@ export default function LoginForm() {
           </button>
         </div>
 
-        {isError && <p className="text-red-600 my-3">{error}</p>}
+        {isError && <p className="text-red-600 my-3">{error?.message}</p>}
 
         {/* Submit Button */}
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="w-full flex items-center justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 group"
-          style={{ backgroundColor: isLoading ? "#4F46E5" : "#2563EB" }}
-        >
-          {isLoading ? (
-            <div className="flex items-center">
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-              {t("auth.login.signingIn")}
-            </div>
-          ) : (
-            <div className="flex items-center">
-              {t("auth.login.signIn")}
+        <Button type="submit" isLoading={isLoading}>
+          <div className="flex items-center">
+            {t("auth.login.signIn")}
+            {!isLoading && (
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          )}
-        </button>
+            )}
+          </div>
+        </Button>
       </div>
     </form>
   );

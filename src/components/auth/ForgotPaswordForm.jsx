@@ -72,9 +72,6 @@ export default function ForgotPasswordForm() {
           <h3 className="text-xl font-semibold text-white mb-2">
             {t("auth.forgotPassword.resetLinkSent")}
           </h3>
-          <p className="text-gray-400 text-sm">
-            Check your email for the password reset link
-          </p>
         </div>
       </div>
     );

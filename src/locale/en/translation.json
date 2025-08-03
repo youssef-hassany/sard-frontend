@@ -33,7 +33,8 @@
       "orContinueWith": "Or continue with",
       "google": "Google",
       "haveAccount": "have an account?",
-      "login": "Login"
+      "login": "Login",
+      "accountCreatedMessage": "Account created successfully"
     },
     "forgotPassword": {
       "title": "Forgot Password",
@@ -56,6 +57,20 @@
       "updatingPassword": "Updating password...",
       "backToLogin": "Back to Login",
       "passwordUpdated": "Password updated successfully"
+    },
+    "success": {
+      "title": "Authentication Successful!",
+      "message": "You have been successfully authenticated. We are now redirecting you to the home page.",
+      "redirecting": "Redirecting in",
+      "seconds": "seconds",
+      "second": "second"
+    },
+    "failure": {
+      "title": "Authentication Failed",
+      "message": "We encountered an issue while trying to authenticate your account. Please try again.",
+      "errorDetails": "Error Details:",
+      "stillTrouble": "Still having trouble?",
+      "contactSupport": "Contact support"
     },
     "validation": {
       "fieldRequired": "Field is required",
