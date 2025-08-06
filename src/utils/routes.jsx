@@ -5,6 +5,8 @@ import ForgotPasswordPage from "../pages/auth/forgot-password";
 import LoginPage from "../pages/auth/login";
 import RegisterPage from "../pages/auth/register";
 import HomePage from "../pages/home/page";
+import NovelPage from "../pages/novel/page";
+import ProfilePage from "../pages/profile/page";
 import Test from "../pages/test";
 
 const routes = [
@@ -42,6 +44,14 @@ const routes = [
   {
     url: "/test",
     component: <Test />,
+  },
+  {
+    url: "/profile",
+    component: <ProfilePage />,
+  },
+  {
+    url: "/novel",
+    component: <NovelPage />,
   },
 ];
 
