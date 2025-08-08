@@ -89,5 +89,28 @@
   },
   "testPage": {
     "test": "تيست"
+  },
+  "profilePage": {
+    "profileNav": {
+      "aboutMe": "عنى",
+      "myNovels": "روايات بقلمى",
+      "library": "قوائم القراءة",
+      "badges": "قاعة الشارات",
+      "profileSettings": "تعديل الملف الشخصى"
+    },
+    "aboutMe": {
+      "joined": "انضم",
+      "red": "قرأ",
+      "chapter": "فصل",
+      "gave": "أعطى",
+      "rating": "تقييم",
+      "commented": "قام بالتعليق",
+      "times": "مرة",
+      "followers": "المتابعين",
+      "following": "المتابعون",
+      "like": "اعجاب",
+      "comment": "تعليق",
+      "writeSomething":"أكتب شئ"
+    }
   }
 }
