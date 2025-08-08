@@ -89,5 +89,28 @@
   },
   "testPage": {
     "test": "testttt"
+  },
+  "profilePage": {
+    "profileNav": {
+      "aboutMe": "About Me",
+      "myNovels": "My Novels",
+      "library": "Reading Lists",
+      "badges": "Badges",
+      "profileSettings": "Edit Profile"
+    },
+    "aboutMe": {
+      "joined": "Joined",
+      "red": "Red",
+      "chapter": "Chapter",
+      "gave": "Gave",
+      "rating": "Rating",
+      "commented": "Commented",
+      "times": "Times",
+      "followers": "Followers",
+      "following": "Following",
+      "like": "Like",
+      "comment": "Comment",
+      "writeSomething":"Write something"
+    }
   }
 }

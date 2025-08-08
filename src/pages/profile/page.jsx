@@ -4,6 +4,9 @@ import AboutMe from "../../components/profile/AboutMe";
 import MyNovels from "../../components/profile/MyNovels";
 import Library from "../../components/profile/Library";
 import BadgesList from "../../components/profile/BadgesList";
+import mainPicture from "../../assets/mainPicture.jpg";
+import profilePicture from "../../assets/profilePicture.jpg";
+import { Settings } from "lucide-react";
 
 const ProfilePage = () => {
   const { t } = useTranslation();
@@ -19,10 +22,26 @@ const ProfilePage = () => {
         after: title: t("aboutMe")
     */
   const subPages = [
-    { title: "About Me", value: "about-me", isActive: true },
-    { title: "My Novels", value: "my-novels", isActive: false },
-    { title: "Library", value: "library", isActive: false },
-    { title: "Badges", value: "badges", isActive: false },
+    {
+      title: t("profilePage.profileNav.aboutMe"),
+      value: "about-me",
+      isActive: true,
+    },
+    {
+      title: t("profilePage.profileNav.myNovels"),
+      value: "my-novels",
+      isActive: false,
+    },
+    {
+      title: t("profilePage.profileNav.library"),
+      value: "library",
+      isActive: false,
+    },
+    {
+      title: t("profilePage.profileNav.badges"),
+      value: "badges",
+      isActive: false,
+    },
   ];
 
   const navigateSubPages = (val) => {
@@ -34,12 +53,28 @@ const ProfilePage = () => {
       {/* make the header section under this */}
       <div>header</div>
 
+      {/* profile image, username */}
+      <div
+        className="w-full h-80 bg-cover bg-center flex justify-center"
+        style={{ backgroundImage: `url(${profilePicture})` }}
+      >
+        <div className=" flex justify-center items-center flex-col gap-4">
+          <img src={mainPicture} alt="" className="w-40 rounded-full" />
+          <p className="text-3xl text-white font-bold text-shadow-sm text-shadow-gray-800">
+            Youssef_kassab
+          </p>
+          <p className="text-2xl text-white font-bold text-shadow-sm text-shadow-gray-800">
+            @Besoooo
+          </p>
+        </div>
+      </div>
+
       {/* the navigation buttons */}
-      <div className="bg-neutral-800 flex justify-between text-white p-2">
-        <div className="flex gap-3">
+      <div className="bg-neutral-800 flex justify-between items-center text-white px-6 drop-shadow-md">
+        <div className="flex gap-8">
           {subPages.map((subPage) => (
             <button
-              className="cursor-pointer"
+              className="cursor-pointer relative text-3xl py-3 btn-underline"
               onClick={() => navigateSubPages(subPage.value)}
             >
               {subPage.title}
@@ -47,7 +82,12 @@ const ProfilePage = () => {
           ))}
         </div>
 
-        <button>Settings button</button>
+        <div className="flex justify-between items-center gap-3 bg-neutral-700 py-2 px-3 rounded-md cursor-pointer">
+          <Settings></Settings>
+          <button className="cursor-pointer text-shadow-sm text-shadow-gray-800">
+            {t("profilePage.profileNav.profileSettings")}
+          </button>
+        </div>
       </div>
 
       {/* components of the sub sections */}
