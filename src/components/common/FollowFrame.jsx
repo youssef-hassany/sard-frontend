@@ -6,7 +6,7 @@ const FollowFrame = ({ followType }) => {
 
   return (
     <div className="bg-neutral-700 flex gap-10 items-center p-3 w-full rounded-3xl">
-      <div className="text-2xl font-semibold">{followType}</div>
+      <div className="text-lg font-semibold">{followType}</div>
       <div className="flex justify-center items-center">
         <img src={mainPicture} alt="" className="w-13 rounded-full -mr-5" />
         <img src={mainPicture} alt="" className="w-13 rounded-full -mr-5" />
