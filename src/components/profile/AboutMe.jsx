@@ -12,7 +12,7 @@ const AboutMe = () => {
       <div className="flex justify-between p-6 gap-15">
         <div className="flex  items-center flex-col gap-5">
           {/* user about info */}
-          <div className="flex flex-col gap-6 bg-neutral-700 p-3 rounded-3xl text-xl font-semibold max-w-[100%] w-[550px]">
+          <div className="flex flex-col gap-6 bg-neutral-700 p-3 rounded-3xl text-md font-semibold max-w-[100%] w-[550px]">
             <p>
               سأحارب الأشرار واحمي العجائز والنساء.. نعم انا القط المشمشي حلو بس
               مش شقي.
