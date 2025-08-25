@@ -110,7 +110,24 @@
       "following": "Following",
       "like": "Like",
       "comment": "Comment",
-      "writeSomething":"Write something"
+      "writeSomething": "Write something"
+    },
+    "novelPage": {
+      "novelTitle": "Sindbad",
+      "onGoing": "Ongoing",
+      "Action": "Action",
+      "Fight": "Fight",
+      "Adventure": "Adventure",
+      "novelDesc": "In the heart of ancient Baghdad, a boy named Sindbad was born. He was unlike any of his peers — his imagination was vaster than the seas, and his courage knew no bounds. He left his homeland in search of adventure, and fate led him to stormy seas, mysterious islands, and hidden kingdoms visible only to those with hearts untouched by fear.\nHe faced strange creatures, challenged sorcerers and giants, yet in every journey, he was not seeking treasure or glory, but the discovery of himself — the meaning of courage, friendship, and loyalty.\n\"Sindbad\" is not just an adventure story, but a tale about passion for life, and about the journey that changes a person forever.",
+      "novelDate": "March 2015",
+      "Writer": "Abdo Mota",
+      "addToReading": "Add to reading list",
+      "reportNovel": "Report novel",
+      "shareWith": "Share the novel on...",
+      "youMayLike": "You may like",
+      "suggestedNovelTitle": "The Reckless Donkey",
+      "writer": "Writer",
+      "writerName": "Hany"
     }
   }
 }
