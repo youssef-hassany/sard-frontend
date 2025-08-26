@@ -111,6 +111,37 @@
       "like": "اعجاب",
       "comment": "تعليق",
       "writeSomething": "أكتب شئ"
+    },
+    "updateModal": {
+      "title": "تحديث الملف الشخصي",
+      "username": "اسم المستخدم",
+      "usernamePlaceholder": "أدخل اسم المستخدم",
+      "displayName": "الاسم المعروض",
+      "displayNamePlaceholder": "أدخل الاسم المعروض",
+      "bio": "نبذة",
+      "bioPlaceholder": "أخبرنا عن نفسك...",
+      "profilePhoto": "صورة الملف الشخصي",
+      "profilePhotoPreview": "معاينة الصورة",
+      "uploadPhoto": "رفع صورة",
+      "changePhoto": "تغيير الصورة",
+      "profileBanner": "لافتة الملف الشخصي",
+      "bannerPreview": "معاينة اللافتة",
+      "uploadBanner": "رفع لافتة",
+      "changeBanner": "تغيير اللافتة",
+      "cancel": "إلغاء",
+      "updateProfile": "تحديث الملف الشخصي",
+      "updateError": "فشل في تحديث البيانات، حاول مرة أخرى.",
+      "validation": {
+        "usernameRequired": "اسم المستخدم مطلوب",
+        "usernameMinLength": "يجب أن يكون اسم المستخدم 3 أحرف على الأقل",
+        "usernameMaxLength": "يجب أن يكون اسم المستخدم أقل من 20 حرفًا",
+        "usernameInvalid": "يمكن أن يحتوي اسم المستخدم فقط على أحرف وأرقام وشرطات سفلية",
+        "displayNameRequired": "الاسم المعروض مطلوب",
+        "displayNameMaxLength": "يجب أن يكون الاسم المعروض أقل من 50 حرفًا",
+        "bioMaxLength": "يجب أن تكون النبذة أقل من 500 حرف",
+        "invalidImageFile": "الرجاء اختيار ملف صورة",
+        "fileSizeLimit": "يجب أن يكون حجم الملف أقل من 5 ميجابايت"
+      }
     }
   },
   "novelPage": {

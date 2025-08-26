@@ -111,6 +111,37 @@
       "like": "Like",
       "comment": "Comment",
       "writeSomething": "Write something"
+    },
+    "updateModal": {
+      "title": "Update Profile",
+      "username": "Username",
+      "usernamePlaceholder": "Enter your username",
+      "displayName": "Display Name",
+      "displayNamePlaceholder": "Enter your display name",
+      "bio": "Bio",
+      "bioPlaceholder": "Tell us about yourself...",
+      "profilePhoto": "Profile Photo",
+      "profilePhotoPreview": "Profile preview",
+      "uploadPhoto": "Upload Photo",
+      "changePhoto": "Change Photo",
+      "profileBanner": "Profile Banner",
+      "bannerPreview": "Banner preview",
+      "uploadBanner": "Upload Banner",
+      "changeBanner": "Change Banner",
+      "cancel": "Cancel",
+      "updateProfile": "Update Profile",
+      "updateError": "Failed to update the data, try again.",
+      "validation": {
+        "usernameRequired": "Username is required",
+        "usernameMinLength": "Username must be at least 3 characters",
+        "usernameMaxLength": "Username must be less than 20 characters",
+        "usernameInvalid": "Username can only contain letters, numbers, and underscores",
+        "displayNameRequired": "Display name is required",
+        "displayNameMaxLength": "Display name must be less than 50 characters",
+        "bioMaxLength": "Bio must be less than 500 characters",
+        "invalidImageFile": "Please select an image file",
+        "fileSizeLimit": "File size must be less than 5MB"
+      }
     }
   },
   "novelPage": {

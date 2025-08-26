@@ -1,28 +1,35 @@
 import { BookCheckIcon, Calendar, MessageSquareText, Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import React from "react";
 import FollowFrame from "../common/FollowFrame";
 import mainPicture from "../../assets/mainPicture.jpg";
 import AboutMePost from "../common/AboutMePost";
+import { formatDateShort } from "../../utils/date";
 
-const AboutMe = () => {
+const AboutMe = ({ userData }) => {
   const { t } = useTranslation();
+
+  const followers = userData?.recentFollowers;
+  const totalFollowers = userData?.totalFollowers;
+
+  const following = userData?.recentFollowing;
+  const totalFollowing = userData?.totalFollowing;
+
   return (
     <div className="bg-neutral-800 text-white">
       <div className="flex justify-between p-6 gap-15">
         <div className="flex  items-center flex-col gap-5">
           {/* user about info */}
           <div className="flex flex-col gap-6 bg-neutral-700 p-3 rounded-3xl text-xl font-semibold max-w-[100%] w-[550px]">
-            <p>
-              سأحارب الأشرار واحمي العجائز والنساء.. نعم انا القط المشمشي حلو بس
-              مش شقي.
-            </p>
+            {userData?.userBio && <p>{userData?.userBio}</p>}
             <div className="flex flex-wrap gap-y-5">
               <div className="flex gap-2 basis-1/2">
                 <div>
                   <Calendar></Calendar>
                 </div>
-                <div>{t("profilePage.aboutMe.joined")} 2025 يوليو</div>
+                <div>
+                  {t("profilePage.aboutMe.joined")}{" "}
+                  {formatDateShort(userData?.createdAt)}
+                </div>
               </div>
 
               <div className="flex gap-2 basis-1/2">
@@ -60,9 +67,13 @@ const AboutMe = () => {
           {/* followers and following sections */}
           <FollowFrame
             followType={t("profilePage.aboutMe.followers")}
+            usersList={followers}
+            total={totalFollowers}
           ></FollowFrame>
           <FollowFrame
             followType={t("profilePage.aboutMe.following")}
+            usersList={following}
+            total={totalFollowing}
           ></FollowFrame>
         </div>
 

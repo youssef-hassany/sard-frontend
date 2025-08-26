@@ -46,7 +46,7 @@ const routes = [
     component: <Test />,
   },
   {
-    url: "/profile",
+    url: "/profile/:username",
     component: <ProfilePage />,
   },
   {

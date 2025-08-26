@@ -1,4 +1,4 @@
-import { Loader } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 const Button = ({ isLoading, onClick, type = "button", children }) => {
   return (
@@ -10,8 +10,8 @@ const Button = ({ isLoading, onClick, type = "button", children }) => {
       style={{ backgroundColor: isLoading ? "#4F46E5" : "#2563EB" }}
     >
       {isLoading ? (
-        <div className="flex items-center">
-          <Loader className="animate-spin h-4 w-4 mr-2" />
+        <div className="flex items-center gap-1">
+          <Loader2 className="animate-spin h-4 w-4 mr-2" />
           {children}
         </div>
       ) : (

@@ -1,24 +1,35 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import mainPicture from "../../assets/mainPicture.jpg";
+import { Link } from "react-router-dom";
 
-const FollowFrame = ({ followType }) => {
+const FollowFrame = ({ followType, usersList, total }) => {
+  const remaining = usersList.length - total;
 
   return (
     <div className="bg-neutral-700 flex gap-10 items-center p-3 w-full rounded-3xl">
       <div className="text-2xl font-semibold">{followType}</div>
       <div className="flex justify-center items-center">
-        <img src={mainPicture} alt="" className="w-13 rounded-full -mr-5" />
-        <img src={mainPicture} alt="" className="w-13 rounded-full -mr-5" />
-        <img src={mainPicture} alt="" className="w-13 rounded-full -mr-5" />
-        <img src={mainPicture} alt="" className="w-13 rounded-full -mr-5" />
-        <img src={mainPicture} alt="" className="w-13 rounded-full -mr-5" />
-        <img src={mainPicture} alt="" className="w-13 rounded-full -mr-5" />
-        <img src={mainPicture} alt="" className="w-13 rounded-full -mr-5" />
-        <img src={mainPicture} alt="" className="w-13 rounded-full -mr-5" />
-        <p className="w-13 h-13 rounded-full -mr-5 bg-neutral-600 flex justify-center items-center text-xl font-semibold">
-          +29
-        </p>
+        {usersList?.map((item) => (
+          <Link to={`/profile/${item?.userName}`}>
+            <img
+              src={item?.profilePhoto}
+              alt=""
+              className="w-13 rounded-full -mr-5"
+            />
+          </Link>
+        ))}
+
+        {remaining > 0 && (
+          <p className="w-13 h-13 rounded-full -mr-5 bg-neutral-600 flex justify-center items-center text-xl font-semibold">
+            {remaining}
+          </p>
+        )}
+
+        {remaining === 0 && (
+          <p className="w-13 h-13 rounded-full -mr-5 bg-neutral-600 flex justify-center items-center text-xl font-semibold">
+            0
+          </p>
+        )}
       </div>
     </div>
   );

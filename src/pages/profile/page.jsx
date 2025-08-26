@@ -7,11 +7,20 @@ import BadgesList from "../../components/profile/BadgesList";
 import mainPicture from "../../assets/mainPicture.jpg";
 import profilePicture from "../../assets/profilePicture.jpg";
 import { Settings } from "lucide-react";
+import { Link, useParams } from "react-router-dom";
+import { useGetUserByUsername } from "../../hooks/user/useGetUserByUsername";
+import { useGetLoggedInUser } from "../../hooks/user/useGetLoggedInUser";
+import UpdateUserModal from "../../components/profile/UpdateUserModal";
 
 const ProfilePage = () => {
+  const { username } = useParams();
+  const { data: userData, isPending } = useGetUserByUsername(username);
+  const { data: loggedInUser } = useGetLoggedInUser();
+
   const { t } = useTranslation();
 
   const [selectedSubPage, setSelectedSubPage] = useState("about-me");
+  const [isUpdateMeOpen, setIsUpdateMeOpen] = useState(false);
 
   /* 
         in order to change the text written in the buttons that navigates between sections you have to use the t function in this array
@@ -48,6 +57,8 @@ const ProfilePage = () => {
     setSelectedSubPage(val);
   };
 
+  if (isPending) return <>Loading..</>;
+
   return (
     <div>
       {/* make the header section under this */}
@@ -56,16 +67,26 @@ const ProfilePage = () => {
       {/* profile image, username */}
       <div
         className="w-full h-80 bg-cover bg-center flex justify-center"
-        style={{ backgroundImage: `url(${profilePicture})` }}
+        style={{
+          backgroundImage: `url(${userData?.profileBanner || profilePicture})`,
+        }}
       >
         <div className=" flex justify-center items-center flex-col gap-4">
-          <img src={mainPicture} alt="" className="w-40 rounded-full" />
+          <img
+            src={userData?.profilePhoto || mainPicture}
+            alt={userData?.displayName}
+            className="w-40 rounded-full"
+          />
           <p className="text-3xl text-white font-bold text-shadow-sm text-shadow-gray-800">
-            Youssef_kassab
+            {userData?.displayName}
           </p>
-          <p className="text-2xl text-white font-bold text-shadow-sm text-shadow-gray-800">
-            @Besoooo
-          </p>
+          <Link
+            to={`/profile/${userData?.userName}`}
+            className="text-2xl text-white font-bold text-shadow-sm text-shadow-gray-800"
+            dir="ltr"
+          >
+            @{userData?.userName}
+          </Link>
         </div>
       </div>
 
@@ -74,7 +95,9 @@ const ProfilePage = () => {
         <div className="flex gap-8">
           {subPages.map((subPage) => (
             <button
-              className="cursor-pointer relative text-3xl py-3 btn-underline"
+              className={`cursor-pointer relative text-3xl py-3 btn-underline ${
+                subPage.value === selectedSubPage && "border-b-2 border-white"
+              }`}
               onClick={() => navigateSubPages(subPage.value)}
             >
               {subPage.title}
@@ -82,19 +105,30 @@ const ProfilePage = () => {
           ))}
         </div>
 
-        <div className="flex justify-between items-center gap-3 bg-neutral-700 py-2 px-3 rounded-md cursor-pointer">
-          <Settings></Settings>
-          <button className="cursor-pointer text-shadow-sm text-shadow-gray-800">
-            {t("profilePage.profileNav.profileSettings")}
-          </button>
-        </div>
+        {loggedInUser?.id === userData?.id && (
+          <div
+            className="flex justify-between items-center gap-3 bg-neutral-700 py-2 px-3 rounded-md cursor-pointer"
+            onClick={() => setIsUpdateMeOpen(true)}
+          >
+            <Settings></Settings>
+            <button className="cursor-pointer text-shadow-sm text-shadow-gray-800">
+              {t("profilePage.profileNav.profileSettings")}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* components of the sub sections */}
-      {selectedSubPage === "about-me" && <AboutMe />}
+      {selectedSubPage === "about-me" && <AboutMe userData={userData} />}
       {selectedSubPage === "my-novels" && <MyNovels />}
       {selectedSubPage === "library" && <Library />}
       {selectedSubPage === "badges" && <BadgesList />}
+
+      <UpdateUserModal
+        isOpen={isUpdateMeOpen}
+        onClose={() => setIsUpdateMeOpen(false)}
+        userData={userData}
+      />
     </div>
   );
 };
