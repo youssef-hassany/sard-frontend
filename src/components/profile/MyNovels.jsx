@@ -5,6 +5,7 @@ import { Book, Plus } from "lucide-react";
 import Button from "../ui/button";
 import { useGetMyWorks } from "../../hooks/work/useGetMyWorks";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const MyNovels = () => {
   const { t } = useTranslation();
@@ -19,11 +20,6 @@ const MyNovels = () => {
   } = useGetMyWorks();
 
   const novelsList = data?.pages.flatMap((page) => page.items) || [];
-
-  const handleAddNovel = () => {
-    // Add your navigation or modal logic here
-    console.log("Add novel clicked");
-  };
 
   // Scroll pagination handler
   const handleScroll = useCallback(() => {
@@ -75,10 +71,13 @@ const MyNovels = () => {
           <p className="text-zinc-300 text-sm mb-4">
             {t("profilePage.myNovels.createNovelMessage")}
           </p>
-          <Button onClick={handleAddNovel}>
+          <Link
+            to="/novel/create"
+            className="max-w-56 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2 mx-auto"
+          >
             <Plus />
             {t("profilePage.myNovels.addNovelButton")}
-          </Button>
+          </Link>
         </div>
       </div>
 

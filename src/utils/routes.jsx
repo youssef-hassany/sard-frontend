@@ -5,6 +5,7 @@ import ForgotPasswordPage from "../pages/auth/forgot-password";
 import LoginPage from "../pages/auth/login";
 import RegisterPage from "../pages/auth/register";
 import HomePage from "../pages/home/page";
+import CreateNovelPage from "../pages/novel/create";
 import NovelPage from "../pages/novel/page";
 import ProfilePage from "../pages/profile/page";
 import Test from "../pages/test";
@@ -50,8 +51,12 @@ const routes = [
     component: <ProfilePage />,
   },
   {
-    url: "/novel",
+    url: "/novel/:novelSlug",
     component: <NovelPage />,
+  },
+  {
+    url: "/novel/create",
+    component: <CreateNovelPage />,
   },
 ];
 

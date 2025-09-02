@@ -8,9 +8,16 @@ import NovelCate from "../../components/novel/NovelCate";
 import LanguageSwitcher from "../../components/common/LanguageSwitcher";
 import NovelStars from "../../components/novel/NovelStars";
 import ChapterTable from "../../components/novel/ChapterTable";
+import { Link, useParams } from "react-router-dom";
+import { useGetNovelBySlug } from "../../hooks/novel/useGetNovelBySlug";
+import { formatDateShort } from "../../utils/date";
+import { Pencil } from "lucide-react";
 
 const NovelPage = () => {
   const { t } = useTranslation();
+  const { novelSlug } = useParams();
+
+  const { data: novel } = useGetNovelBySlug(novelSlug);
 
   const [selectedSubPage, setSelectedSubPage] = useState("chapters");
 
@@ -39,62 +46,64 @@ const NovelPage = () => {
       <div className="grid shadow-[6px_12px_10px_black]  text-white xl:grid-cols-[1fr_4fr] lg:grid-cols-[1fr_2fr] md:grid-cols[1fr] gap-[30px] p-[15px] bg-[#3C3C3C] rounded-2xl ">
         <div className="w-[100%] row-start-1 md:col-start-1 ">
           <img
-            src="https://m.media-amazon.com/images/I/81m6eNdRWwL._UF894,1000_QL80_.jpg"
+            src={
+              novel?.coverImageUrl ||
+              "https://m.media-amazon.com/images/I/81m6eNdRWwL._UF894,1000_QL80_.jpg"
+            }
             alt=""
             className="rounded-2xl w-[100%]"
           />
         </div>
         <div className="flex flex-col ">
           <p className="text-[40px] font-bold pb-[30px] border-b-[1px] border-b-[#797979] mb-2">
-            {t("novelPage.novelTitle")}
+            {novel?.title}
           </p>
           <div className="flex flex-col justify-between h-full">
             <div className="flex gapy-x-3 gap-x-3 flex-wrap">
-              <NovelCate text={t("novelPage.onGoing")} />
-              <NovelCate text={t("novelPage.Action")} />
-              <NovelCate text={t("novelPage.Fight")} />
-              <NovelCate text={t("novelPage.Adventure")} />
+              {novel?.genresList?.map((genre) => (
+                <NovelCate text={genre.name} />
+              ))}
             </div>
             <div className="bg-[#4A4A4A] rounded-2xl p-[20px] mt-2">
-              <p className="font-bold leading-relaxed">
-                {t("novelPage.novelDesc")}
-              </p>
+              <p className="font-bold leading-relaxed">{novel?.summary}</p>
             </div>
+
             <div className="flex  flex-wrap justify-between items-center gap-[20px] mt-[15px]">
               <div className="flex justify-between flex-wrap items-center gap-3 md:gap-[20px]">
-                <img
-                  src="https://4kwallpapers.com/images/wallpapers/attack-on-titan-2048x2048-10442.jpg"
-                  alt=""
-                  className="w-[50px] h-[50px] rounded-[50%]"
-                />
-                <p className="font-bold">{t("novelPage.Writer")}</p>
+                {
+                  <Link to={`/profile/${novel?.author?.userName}`}>
+                    {" "}
+                    <img
+                      src={
+                        novel?.author?.profilePhoto ||
+                        "https://4kwallpapers.com/images/wallpapers/attack-on-titan-2048x2048-10442.jpg"
+                      }
+                      alt=""
+                      className="w-[50px] h-[50px] rounded-[50%]"
+                    />{" "}
+                  </Link>
+                }
+                <p className="font-bold">{novel?.author?.displayName}</p>
               </div>
               <div className="flex gap-[10px] items-center">
                 <div className="flex flex-row-reverse gap-[5px] items-center ">
-                  <NovelStars />
-                  <NovelStars />
-                  <NovelStars />
-                  <NovelStars />
-                  <NovelStars />
+                  {novel &&
+                    Array.from({
+                      length: Math.round(novel?.totalAverageScore || 0),
+                    }).map((_, i) => <NovelStars key={i} />)}
 
-                  <div className="font-bold ">4.0</div>
-                  <span className="text-[12px]"> &#40;1267&#41;</span>
+                  <div className="font-bold ">{novel?.totalAverageScore}</div>
+                  <span className="text-[12px]">
+                    {" "}
+                    &#40;{novel?.reviewCount}&#41;
+                  </span>
                 </div>
-                <svg
-                  width="29"
-                  height="29"
-                  viewBox="0 0 29 29"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 22.9583V29H6.04085L23.8573 11.1811L17.8165 5.13944L0 22.9583ZM4.70381 25.7778H3.22178V24.2956L17.8165 9.69889L19.2985 11.1811L4.70381 25.7778ZM28.5289 4.23722L24.7594 0.467222C24.4372 0.145 24.0345 0 23.6157 0C23.1968 0 22.7941 0.161111 22.4881 0.467222L19.5401 3.41556L25.581 9.45722L28.5289 6.50889C28.6782 6.35984 28.7967 6.1828 28.8776 5.9879C28.9584 5.79299 29 5.58406 29 5.37306C29 5.16205 28.9584 4.95312 28.8776 4.75822C28.7967 4.56332 28.6782 4.38627 28.5289 4.23722Z"
-                    fill="white"
-                  />
-                </svg>
+                <Pencil />
 
                 <div className="flex gap-[20px] text-[18px] font-bold">
-                  <p className="font-bold">{t("novelPage.novelDate")}</p>
+                  <p className="font-bold">
+                    {formatDateShort(novel?.createdAt)}
+                  </p>
                 </div>
               </div>
             </div>
