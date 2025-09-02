@@ -1,4 +1,8 @@
 {
+  "common": {
+    "follow": "Follow",
+    "followed": "Followed"
+  },
   "auth": {
     "login": {
       "title": "Welcome Back",
@@ -142,6 +146,15 @@
         "invalidImageFile": "Please select an image file",
         "fileSizeLimit": "File size must be less than 5MB"
       }
+    },
+    "myNovels": {
+      "createNovelTitle": "Create Your Next Story",
+      "createNovelMessage": "Start writing a new novel and share your creativity with the world",
+      "addNovelButton": "Add New Novel",
+      "noNovelsTitle": "No Novels Yet",
+      "noNovelsMessage": "You haven't created any novels yet. Start your writing journey by creating your first story!",
+      "novelsErrorTitle": "Error Loading Novels",
+      "novelsErrorMessage": "Failed to load your novels. Please try again later."
     }
   },
   "novelPage": {

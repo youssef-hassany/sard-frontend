@@ -1,4 +1,8 @@
 {
+  "common": {
+    "follow": "تابع",
+    "followed": "متابع"
+  },
   "auth": {
     "login": {
       "title": "مرحباً بعودتك",
@@ -142,6 +146,15 @@
         "invalidImageFile": "الرجاء اختيار ملف صورة",
         "fileSizeLimit": "يجب أن يكون حجم الملف أقل من 5 ميجابايت"
       }
+    },
+    "myNovels": {
+      "createNovelTitle": "أنشئ قصتك القادمة",
+      "createNovelMessage": "ابدأ بكتابة رواية جديدة وشارك إبداعك مع العالم",
+      "addNovelButton": "أضف رواية جديدة",
+      "noNovelsTitle": "لا توجد روايات بعد",
+      "noNovelsMessage": "لم تقم بإنشاء أي روايات بعد. ابدأ رحلتك في الكتابة بإنشاء قصتك الأولى!",
+      "novelsErrorTitle": "خطأ في تحميل الروايات",
+      "novelsErrorMessage": "فشل تحميل رواياتك. يرجى المحاولة مرة أخرى لاحقاً."
     }
   },
   "novelPage": {

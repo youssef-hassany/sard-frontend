@@ -11,6 +11,7 @@ import { Link, useParams } from "react-router-dom";
 import { useGetUserByUsername } from "../../hooks/user/useGetUserByUsername";
 import { useGetLoggedInUser } from "../../hooks/user/useGetLoggedInUser";
 import UpdateUserModal from "../../components/profile/UpdateUserModal";
+import FollowToggle from "../../components/common/FollowToggle";
 
 const ProfilePage = () => {
   const { username } = useParams();
@@ -60,10 +61,7 @@ const ProfilePage = () => {
   if (isPending) return <>Loading..</>;
 
   return (
-    <div>
-      {/* make the header section under this */}
-      <div>header</div>
-
+    <div className="bg-zinc-800 min-h-screen">
       {/* profile image, username */}
       <div
         className="w-full h-80 bg-cover bg-center flex justify-center"
@@ -105,7 +103,7 @@ const ProfilePage = () => {
           ))}
         </div>
 
-        {loggedInUser?.id === userData?.id && (
+        {loggedInUser?.id === userData?.id ? (
           <div
             className="flex justify-between items-center gap-3 bg-neutral-700 py-2 px-3 rounded-md cursor-pointer"
             onClick={() => setIsUpdateMeOpen(true)}
@@ -115,6 +113,11 @@ const ProfilePage = () => {
               {t("profilePage.profileNav.profileSettings")}
             </button>
           </div>
+        ) : (
+          <FollowToggle
+            isFollowed={userData?.isFollowing}
+            userId={userData?.id}
+          />
         )}
       </div>
 
